@@ -1,4 +1,4 @@
-package br.com.resttemplate.config;
+package br.com.doceasier.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

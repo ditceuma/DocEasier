@@ -1,6 +1,6 @@
-package br.com.resttemplate.model.docs;
+package br.com.doceasier.model.docs;
 
-import br.com.resttemplate.model.docs.annotations.ParamDescription;
+import br.com.doceasier.model.docs.annotations.ParamDescription;
 
 
 public class Parameter {

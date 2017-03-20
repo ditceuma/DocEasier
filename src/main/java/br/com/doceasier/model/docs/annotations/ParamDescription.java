@@ -1,13 +1,15 @@
-package br.com.resttemplate.model.docs.annotations;
+package br.com.doceasier.model.docs.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.TYPE)
+@Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ClassDescription {
-	String classDescription();
-	String classAuthor();
+public @interface ParamDescription {
+
+	String description();
+	boolean optional();
+	
 }

@@ -1,4 +1,4 @@
-package br.com.resttemplate.model.docs.annotations;
+package br.com.doceasier.model.docs.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

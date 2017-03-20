@@ -1,10 +1,10 @@
-package br.com.resttemplate.model.docs;
+package br.com.doceasier.model.docs;
 
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.resttemplate.model.docs.annotations.MethodDescription;
+import br.com.doceasier.model.docs.annotations.MethodDescription;
 
 import com.thoughtworks.paranamer.AnnotationParanamer;
 import com.thoughtworks.paranamer.BytecodeReadingParanamer;
@@ -20,7 +20,7 @@ public class Method {
 	private String returnType;
 	private String dateCreation;
 	private String author;
-	private List<br.com.resttemplate.model.docs.Parameter> parameters = new ArrayList<br.com.resttemplate.model.docs.Parameter>();
+	private List<br.com.doceasier.model.docs.Parameter> parameters = new ArrayList<br.com.doceasier.model.docs.Parameter>();
 	
 	public Method(java.lang.reflect.Method method) {
 		this.nativeMethod = method;
@@ -42,7 +42,7 @@ public class Method {
 		
 		if(paramName.length == param.length){
 			for(int i=0;i<param.length;i++){
-				parameters.add(new br.com.resttemplate.model.docs.Parameter(param[i], paramName[i]));
+				parameters.add(new br.com.doceasier.model.docs.Parameter(param[i], paramName[i]));
 			}
 		}
 	}

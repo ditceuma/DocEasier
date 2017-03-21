@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.doceasier.model.docs.annotations.ClassDescription;
 import br.com.doceasier.model.docs.annotations.EnableDocumentation;
@@ -20,7 +21,7 @@ import br.com.doceasier.model.docs.annotations.ParamDescription;
 import com.google.gson.Gson;
 
 @Controller
-@RequestMapping(value = "/doc")
+@RequestMapping(value="/doc")
 @EnableDocumentation
 @ClassDescription(classAuthor = "Marcus Cartágenes", classDescription = "Classe responsável por documentação de Serviços")
 public class DocsController {

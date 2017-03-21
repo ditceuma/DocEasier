@@ -13,18 +13,13 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "br.com.resttemplate")
-public class Config extends WebMvcConfigurerAdapter {
+@ComponentScan(basePackages = "br.com.doceasier")
+public class ConfigCore extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations(
 				"/resources/");
-	}
-
-	@Override
-	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
 	}
 
 	@Bean

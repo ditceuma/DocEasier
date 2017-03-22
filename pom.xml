@@ -5,7 +5,6 @@
 	<groupId>br.com.doceasier</groupId>
 	<artifactId>DocEasier</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 
 	<dependencies>
@@ -33,12 +32,30 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
 		<!-- @@@@@@@@@@@@@@@@@@@@@ SPRING DEPEDENCIES @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+		<!-- JUNIT -->
+		<dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 		
-		
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.thoughtworks.paranamer</groupId>
 			<artifactId>paranamer</artifactId>
@@ -48,6 +65,11 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.0.pr1</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -71,7 +93,7 @@
 		</dependency>
 	</dependencies>
 
-<build>
+	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -106,8 +128,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
-		<springframework.version>4.1.7.RELEASE</springframework.version>
-		<hibernate.version>4.3.6.Final</hibernate.version>
+		<springframework.version>4.3.4.RELEASE</springframework.version>
+		<hibernate.version>5.0.1.Final</hibernate.version>
 		<mysql.version>5.1.31</mysql.version>
 		<joda-time.version>2.3</joda-time.version>
 		<testng.version>6.9.4</testng.version>
@@ -115,4 +137,5 @@
 		<h2.version>1.4.187</h2.version>
 		<dbunit.version>2.2</dbunit.version>
 	</properties>
+	<packaging>war</packaging>
 </project>

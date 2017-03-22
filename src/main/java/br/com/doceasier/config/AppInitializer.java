@@ -9,6 +9,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 
+
 public class AppInitializer implements WebApplicationInitializer {
 
 	
@@ -16,7 +17,7 @@ public class AppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-		ctx.register(ConfigCore.class);
+		ctx.register(SpringConfiguration.class);
 		ctx.setServletContext(servletContext);
 
 		ServletRegistration.Dynamic servlet = servletContext.addServlet(
@@ -24,6 +25,5 @@ public class AppInitializer implements WebApplicationInitializer {
 
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping("/");
-		
 	}
 }

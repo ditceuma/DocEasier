@@ -21,9 +21,8 @@ import br.com.doceasier.model.docs.annotations.ParamDescription;
 import com.google.gson.Gson;
 
 @Controller
-@RequestMapping(value="/doc")
 @EnableDocumentation
-@ClassDescription(classAuthor = "Marcus Cartágenes", classDescription = "Classe responsável por documentação de Serviços")
+@RequestMapping(value="/doc")
 public class DocsController {
 
 	@Autowired
@@ -35,10 +34,6 @@ public class DocsController {
 	}
 
 	@RequestMapping(value="/getAllInformations", method=RequestMethod.GET)
-	@MethodDescription(
-			author="Marcus Cartágenes", 
-			description="Método para exibir a documentação do projeto",
-			dateCreated="19/03/2017")
 	public void showDocumentation(@ParamDescription(description="ServletResponse", optional=false)HttpServletResponse response) throws Exception {
 		try {
 			List<br.com.doceasier.model.docs.Class> clazz = new ArrayList<br.com.doceasier.model.docs.Class>();

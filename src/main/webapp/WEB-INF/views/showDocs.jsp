@@ -5,6 +5,7 @@
 
 <t:template>
 	<jsp:body>
+		<p>The context path is: ${pageContext.request.contextPath}.</p>
 		<div class="searchBar">		
 			<form action="#" method="GET" class="form"><br/><br/>
 			<div class="row">

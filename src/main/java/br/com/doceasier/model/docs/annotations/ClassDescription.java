@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ClassDescription {
-	String classDescription() default "Classe anotada pelo DocEasier, porém não foi definida uma descrição !";
-	String classAuthor() default "Classe anotada pelo DocEasier, porém não foi definido um autor !";
+	String classDescription() default "";
+	String classAuthor() default "";
 }

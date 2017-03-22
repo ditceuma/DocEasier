@@ -8,8 +8,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MethodDescription {
-	String description();
-	String author();
-	String dateCreated();
-	//TypeRequestEnum typeRequest();
+	String description() default "";
+	String author() default "";
+	String dateCreated() default "";
 }

@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ClassDescription {
-	String classDescription() default "";
-	String classAuthor() default "";
+	String description() default "Nenhuma descrição adicionada para esta classe :(";
+	String createdBy() default "";
+	String date() default "";
 }

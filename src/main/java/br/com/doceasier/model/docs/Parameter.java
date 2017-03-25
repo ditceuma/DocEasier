@@ -11,7 +11,16 @@ public class Parameter {
 	private String type;
 	private boolean optional;
 	
-	public Parameter(java.lang.reflect.Parameter p, String name) {
+	protected Parameter(java.lang.reflect.Parameter p, String name) {
+		configParameter(p, name);
+	}
+	
+	/**
+	 * 
+	 * @param p - Parameter
+	 * @param name - Parameter name
+	 */
+	private void configParameter(java.lang.reflect.Parameter p, String name){
 		this.nativeParameter = p;
 		this.name = name;
 		this.type = p.getType().getCanonicalName();
@@ -19,8 +28,6 @@ public class Parameter {
 		if(p.isAnnotationPresent(ParamDescription.class)){
 			this.description = (String) p.getAnnotation(ParamDescription.class).description();
 			this.optional = (boolean) p.getAnnotation(ParamDescription.class).optional();
-		}else{
-			this.description = "Nenhuma descrição adicionada para este parâmetro :(";
 		}
 	}
 }

@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ParamDescription {
 
-	String description() default "";
+	String description() default "Nenhuma descrição adicionada para este parâmetro :(";
 	boolean optional() default true;
 	
 }

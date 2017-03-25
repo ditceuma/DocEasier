@@ -15,15 +15,20 @@ public class Class {
 	
 	@SuppressWarnings("unchecked")
 	public Class(@SuppressWarnings("rawtypes") java.lang.Class c) {
+		getClassConfiguration(c);
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void getClassConfiguration(java.lang.Class c){
+		
 		this.nativeClazz = c;
 		this.origin = c.getPackage().toString();
 		this.name = c.getSimpleName();
-		//SET CLASS DESCRIPTION
+		
 		if(nativeClazz.isAnnotationPresent(ClassDescription.class)){
 			ClassDescription classDescription = (ClassDescription) nativeClazz.getAnnotation(ClassDescription.class);
-			this.description = classDescription.classDescription();
-		}else{
-			this.description = "Nenhuma descrição adicionada para esta classe :(";
+			this.description = classDescription.description();
 		}
 		
 		for(java.lang.reflect.Method m: this.nativeClazz.getDeclaredMethods()){

@@ -13,17 +13,22 @@ import java.util.Set;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 
+import br.com.doceasier.exception.DoceasierException;
 import br.com.doceasier.model.annotations.EnableDocumentation;
+import br.com.doceasier.model.annotations.Project;
 
+@SuppressWarnings({ "rawtypes" })
 public final class Scanner {
 	
 	private List<Class> classes;
+	private List<Class> classesAnnotedWithProject;
 	
 	public Scanner() {
 		classes = new ArrayList<Class>();
+		classesAnnotedWithProject = new ArrayList<Class>();
 	}
 	
-	protected List<Class> scan(ClassLoader classLoader, Set<String> locations,Set<String> packages) throws URISyntaxException {
+	protected List<Class> scan(ClassLoader classLoader, Set<String> locations,Set<String> packages) throws URISyntaxException, DoceasierException {
 		if (!(classLoader instanceof URLClassLoader)) {
 			return null;
 		}
@@ -37,19 +42,20 @@ public final class Scanner {
 			} catch (URISyntaxException e) {
 				throw new URISyntaxException(path, e.getReason());
 			}
-			// Only process the URL if it matches one of our filter strings
 			if (matchesAny(path, locations)) {
 				if (location.isDirectory()) {
 					this.getClassesInDirectory(null, location, packages);
-				} else {
-					getClassesInJar(location, packages);
 				}
+			}
+			
+			if(this.classesAnnotedWithProject.size() == 0){
+				throw new DoceasierException("Você precisa anotar uma classe com @Project, e esta classe precisa estar anotada com @EnableDocumentation");
 			}
 		}
 		return classes;
 	}
 	protected void getClassesInDirectory(String parent, File location,
-			Set<String> packagePatterns) {
+			Set<String> packagePatterns) throws DoceasierException {
 		File[] files = location.listFiles();
 		StringBuilder builder = null;
 		for (File file : files) {
@@ -62,11 +68,10 @@ public final class Scanner {
 				if (matchesAny(packageOrClass, packagePatterns)) {
 					String className = packageOrClass.replace("/", ".");
 					try{
-						@SuppressWarnings({ "rawtypes", "rawtypes" })
 						Class c = Class.forName(className.replace(".class", ""));
-						this.verifyClass(c);
+						this.verifyClass(c, classesAnnotedWithProject);
 					}catch(ClassNotFoundException ex){
-						System.err.println("Classe não encontrada :( "+file.getName().replace("/", "."));
+						throw new DoceasierException("Classe não encontrada :( "+file.getName().replace("/", "."));
 					}
 				}
 			}
@@ -74,7 +79,7 @@ public final class Scanner {
 	}
 	
 	
-	protected static void getClassesInJar(File location,Set<String> packagePatterns) {
+/*	protected static void getClassesInJar(File location,Set<String> packagePatterns) {
 		try {
 			JarFile jar = new JarFile(location);
 			Enumeration entries = jar.entries();
@@ -90,13 +95,25 @@ public final class Scanner {
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
-	}
+	}*/
 	
 	
 	@SuppressWarnings("unchecked")
-	private void verifyClass(Class c){
+	private void verifyClass(Class c, List<Class> annotedClassesWithProject) throws DoceasierException{
 		if(c.isAnnotationPresent(EnableDocumentation.class)){
+			if(c.isAnnotationPresent(Project.class)){
+				this.addClassAnnotedWithProject(c);
+			}
 			this.addClass(c);
+		}
+		
+		if(!c.isAnnotationPresent(EnableDocumentation.class) && c.isAnnotationPresent(Project.class)){
+			throw new DoceasierException("A anotação @Project precisa estar em uma classe com @EnableDocumentation");
+		}
+		
+		if(annotedClassesWithProject.size() > 1){
+			this.classesAnnotedWithProject.clear();
+			throw new DoceasierException("A anotação @Project só pode estar em um classe, e esta classe precisa estar anotada com @Documentation");
 		}
 	}
 	
@@ -114,5 +131,9 @@ public final class Scanner {
 	
 	private void addClass(@SuppressWarnings("rawtypes") Class c){
 		this.classes.add(c);
+	}
+	
+	private void addClassAnnotedWithProject(Class c){
+		this.classesAnnotedWithProject.add(c);
 	}
 }

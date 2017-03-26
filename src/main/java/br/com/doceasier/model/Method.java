@@ -1,5 +1,6 @@
 package br.com.doceasier.model;
 
+import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +20,7 @@ public class Method {
 	private List<TypeRequest> typesRequest = new ArrayList<TypeRequest>();
 	private String author;
 	private String url;
+	private String modifier;
 	private List<br.com.doceasier.model.Parameter> parameters = new ArrayList<br.com.doceasier.model.Parameter>();
 
 	public Method(java.lang.reflect.Method method) {
@@ -37,6 +39,7 @@ public class Method {
 	private void getMethodConfiguration(java.lang.reflect.Method method) {
 		this.name = method.getName();
 		this.returnType = method.getReturnType().getCanonicalName();
+		this.modifier = Modifier.toString(method.getModifiers());
 		DocMethod doc = method.getAnnotation(DocMethod.class);
 		if (method.isAnnotationPresent(DocMethod.class)) {
 			this.description = doc.description();

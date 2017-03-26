@@ -15,8 +15,9 @@ public class Constructor {
 	
 
 	public Constructor(java.lang.reflect.Constructor c) {
+		DocConstructor doc = (DocConstructor) c.getAnnotation(DocConstructor.class);
 		if(c.isAnnotationPresent(DocConstructor.class)){
-			this.description = "Teste";/*(String) c.getAnnotation(DocConstructor.class).toString()*/;
+			this.description = doc.description();
 			String[] paramName = ParanamerUtil.getParanamer().lookupParameterNames(c);
 			Parameter[] param = c.getParameters();
 			if (paramName.length == param.length) {

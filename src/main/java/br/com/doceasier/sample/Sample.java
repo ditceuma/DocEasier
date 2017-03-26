@@ -7,7 +7,9 @@ import br.com.doceasier.model.annotations.DocField;
 import br.com.doceasier.model.annotations.DocMethod;
 import br.com.doceasier.model.annotations.DocParam;
 import br.com.doceasier.model.annotations.EnableDocumentation;
+import br.com.doceasier.model.annotations.Project;
 
+@Project(description="teste", masterUrl="/etste", name="teste")
 @EnableDocumentation
 @DocClass(	createdBy="Marcus Cartágenes", 
 			date="24/03/2017", 

@@ -8,6 +8,7 @@ import br.com.doceasier.model.annotations.DocMethod;
 import br.com.doceasier.model.annotations.DocParam;
 import br.com.doceasier.model.annotations.EnableDocumentation;
 import br.com.doceasier.model.annotations.Project;
+import br.com.doceasier.model.sample.Employee;
 
 @Project(description="teste", masterUrl="/etste", name="teste")
 @EnableDocumentation
@@ -34,14 +35,14 @@ public class Sample {
 	
 	@DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", 
 			description="Método de Exemplo (Sem parametros)", 
-			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod")
+			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod",modelSucess=Employee.class, modelError=Error.class)
 	public void sampleMethod(){
 		System.out.println("Hi ! I'm a sample method without arguments :D");
 	}
 	
 	@DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", 
 			description="Método de Exemplo (Com parametros)", 
-			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod")
+			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", modelError=Sample.class,modelSucess=Sample.class)
 	public void anotherSampleMethod(@DocParam(description="Nome do usuario",optional=false)String nome, 
 									@DocParam(description="Idade do usuario",optional=false)String idade, 
 									@DocParam(description="sexo do usuario",optional=false)String sexo, 

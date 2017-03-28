@@ -11,11 +11,15 @@ import br.com.doceasier.model.annotations.EnableDocumentation;
 
 import com.google.gson.Gson;
 
-public class DocEasier {
+public abstract class DocEasier {
 	
-	public static void main(String... args) throws URISyntaxException, DoceasierException {
+	public static String storeMyDocIntoAJson() throws URISyntaxException, Exception {
 		Project project = new Project(new Scanner().scan(Thread.currentThread().getContextClassLoader(),Collections.EMPTY_SET, Collections.EMPTY_SET));
-		System.out.println(new Gson().toJson(project));
+		return (new Gson().toJson(project));
+	}
+	
+	public static void main(String... args) throws URISyntaxException, Exception{
+		Project project = new Project(new Scanner().scan(Thread.currentThread().getContextClassLoader(),Collections.EMPTY_SET, Collections.EMPTY_SET));
 	}
 	
 	

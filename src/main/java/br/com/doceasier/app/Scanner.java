@@ -28,7 +28,7 @@ public final class Scanner {
 		classesAnnotedWithProject = new ArrayList<Class>();
 	}
 	
-	protected List<Class> scan(ClassLoader classLoader, Set<String> locations,Set<String> packages) throws URISyntaxException, DoceasierException {
+	protected List<Class> scan(ClassLoader classLoader, Set<String> locations,Set<String> packages) throws URISyntaxException, Exception {
 		if (!(classLoader instanceof URLClassLoader)) {
 			return null;
 		}
@@ -49,13 +49,13 @@ public final class Scanner {
 			}
 			
 			if(this.classesAnnotedWithProject.size() == 0){
-				throw new DoceasierException("Você precisa anotar uma classe com @Project, e esta classe precisa estar anotada com @EnableDocumentation");
+				throw new Exception("Você precisa anotar uma classe com @Project, e esta classe precisa estar anotada com @EnableDocumentation");
 			}
 		}
 		return classes;
 	}
 	protected void getClassesInDirectory(String parent, File location,
-			Set<String> packagePatterns) throws DoceasierException {
+			Set<String> packagePatterns) throws Exception {
 		File[] files = location.listFiles();
 		StringBuilder builder = null;
 		for (File file : files) {
@@ -71,7 +71,7 @@ public final class Scanner {
 						Class c = Class.forName(className.replace(".class", ""));
 						this.verifyClass(c, classesAnnotedWithProject);
 					}catch(ClassNotFoundException ex){
-						throw new DoceasierException("Classe não encontrada :( "+file.getName().replace("/", "."));
+						throw new Exception("Classe não encontrada :( "+file.getName().replace("/", "."));
 					}
 				}
 			}

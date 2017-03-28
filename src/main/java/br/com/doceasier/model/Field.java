@@ -14,7 +14,7 @@ public class Field {
 	private String modifier;
 
 	public Field(java.lang.reflect.Field f) {
-		if(f.isAnnotationPresent(DocField.class));{
+		if(f.isAnnotationPresent(DocField.class)){
 			this.name = f.getName();
 			this.type = f.getType().getCanonicalName();
 			this.modifier = Modifier.toString(f.getModifiers());

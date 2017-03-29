@@ -9,6 +9,7 @@ import br.com.doceasier.model.annotations.DocParam;
 import br.com.doceasier.model.annotations.EnableDocumentation;
 import br.com.doceasier.model.annotations.Project;
 import br.com.doceasier.model.sample.Employee;
+import br.com.doceasier.model.sample.Erro;
 
 @Project(description="teste", masterUrl="/etste", name="teste")
 @EnableDocumentation
@@ -42,7 +43,7 @@ public class Sample {
 	
 	@DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", 
 			description="Método de Exemplo (Com parametros)", 
-			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", modelError=Sample.class,modelSucess=Sample.class)
+			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", modelError=Employee.class,modelSucess=Erro.class)
 	public void anotherSampleMethod(@DocParam(description="Nome do usuario",optional=false)String nome, 
 									@DocParam(description="Idade do usuario",optional=false)String idade, 
 									@DocParam(description="sexo do usuario",optional=false)String sexo, 

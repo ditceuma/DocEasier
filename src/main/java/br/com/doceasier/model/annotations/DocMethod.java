@@ -13,7 +13,7 @@ public @interface DocMethod {
 	String description() default "Nenhuma descrição adicionada para este método :(";
 	String createdBy() default "Autor inexistente ! Por favor, verifique";
 	String date() default "Data de criação não configurada! Por favor, verifique";
-	TypeRequest typeRequest();
+	TypeRequest typeRequest() default TypeRequest.GET;
 	String url();
 	Class modelSucess();
 	Class modelError();

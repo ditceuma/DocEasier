@@ -13,9 +13,9 @@ import com.google.gson.Gson;
 
 public abstract class DocEasier {
 	
-	public static String storeMyDocIntoAJson() throws URISyntaxException, Exception {
+	public static Object storeMyDocIntoAJson() throws URISyntaxException, Exception {
 		Project project = new Project(new Scanner().scan(Thread.currentThread().getContextClassLoader(),Collections.EMPTY_SET, Collections.EMPTY_SET));
-		return (new Gson().toJson(project));
+		return project;
 	}
 	
 //	public static void main(String... args) throws URISyntaxException, Exception{

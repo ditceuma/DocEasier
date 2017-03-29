@@ -23,8 +23,8 @@ public class Method {
 	private String author;
 	private String url;
 	private String modifier;
-	private String jsonSampleSuccess;
-	private String jsonSampleError;
+	private java.lang.Class sampleError;
+	private java.lang.Class sampleSuccess;
 	private List<br.com.doceasier.model.Parameter> parameters = new ArrayList<br.com.doceasier.model.Parameter>();
 
 	public Method(java.lang.reflect.Method method) {
@@ -48,8 +48,8 @@ public class Method {
 		DocMethod doc = method.getAnnotation(DocMethod.class);
 
 		if (method.isAnnotationPresent(DocMethod.class)) {
-			this.jsonSampleSuccess = this.getJson(doc.modelSucess());
-			this.jsonSampleError = this.getJson(doc.modelError());
+			this.sampleError = doc.modelError();
+			this.sampleSuccess = doc.modelSucess();
 			this.description = doc.description();
 			this.author = doc.createdBy();
 			this.dateCreation = doc.date();
@@ -67,20 +67,5 @@ public class Method {
 				}
 			}
 		}
-	}
-
-	private String getJson(java.lang.Class c) {
-		try {
-			Object o = c.newInstance();
-			GsonBuilder gsonBuilder = new GsonBuilder();
-			gsonBuilder.setPrettyPrinting();
-			gsonBuilder.serializeNulls();
-			Gson gson = gsonBuilder.create();
-			return gson.toJson(o);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			return null;		
-		}
-		
 	}
 }

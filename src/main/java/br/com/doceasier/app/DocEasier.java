@@ -18,9 +18,9 @@ public abstract class DocEasier {
 		return (new Gson().toJson(project));
 	}
 	
-	public static void main(String... args) throws URISyntaxException, Exception{
-		Project project = new Project(new Scanner().scan(Thread.currentThread().getContextClassLoader(),Collections.EMPTY_SET, Collections.EMPTY_SET));
-	}
+//	public static void main(String... args) throws URISyntaxException, Exception{
+//		Project project = new Project(new Scanner().scan(Thread.currentThread().getContextClassLoader(),Collections.EMPTY_SET, Collections.EMPTY_SET));
+//	}
 	
 	
 }

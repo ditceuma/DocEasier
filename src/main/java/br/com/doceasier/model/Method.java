@@ -48,7 +48,8 @@ public class Method {
 		DocMethod doc = method.getAnnotation(DocMethod.class);
 
 		if (method.isAnnotationPresent(DocMethod.class)) {
-			this.getJson(doc.modelSucess());
+			this.jsonSampleSuccess = this.getJson(doc.modelSucess());
+			this.jsonSampleError = this.getJson(doc.modelError());
 			this.description = doc.description();
 			this.author = doc.createdBy();
 			this.dateCreation = doc.date();
@@ -68,15 +69,18 @@ public class Method {
 		}
 	}
 
-	private void getJson(java.lang.Class c) {
+	private String getJson(java.lang.Class c) {
 		try {
 			Object o = c.newInstance();
 			GsonBuilder gsonBuilder = new GsonBuilder();
+			gsonBuilder.setPrettyPrinting();
 			gsonBuilder.serializeNulls();
 			Gson gson = gsonBuilder.create();
-			System.out.println(gson.toJson(o));
+			return gson.toJson(o);
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			return null;		
 		}
+		
 	}
 }

@@ -5,7 +5,7 @@ public class Employee {
 	private Integer codigo;
 	private String nome;
 	private String cpf;
-	private Erro erro;
+	private Erro erro = new Erro();
 	char teste;
 	int idade;
 	

@@ -1,4 +1,4 @@
-package br.com.doceasier.model;
+package br.com.doceasier.model.meta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import br.com.doceasier.model.annotations.DocConstructor;
 public class Constructor {
 
 	private String description;
-	private List<br.com.doceasier.model.Parameter> parameters = new ArrayList<br.com.doceasier.model.Parameter>();
+	private List<br.com.doceasier.model.meta.Parameter> parameters = new ArrayList<br.com.doceasier.model.meta.Parameter>();
 	
 
 	public Constructor(java.lang.reflect.Constructor c) {
@@ -20,7 +20,7 @@ public class Constructor {
 			java.lang.reflect.Parameter[] param = c.getParameters();
 			if (paramName.length == param.length) {
 				for (int i = 0; i < param.length; i++) {
-					parameters.add(new br.com.doceasier.model.Parameter(param[i], paramName[i]));
+					parameters.add(new br.com.doceasier.model.meta.Parameter(param[i], paramName[i]));
 				}
 			}
 		}

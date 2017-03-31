@@ -36,14 +36,14 @@ public class Sample {
 	
 	@DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", 
 			description="Método de Exemplo (Sem parametros)", 
-			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod",modelSucess=Employee.class, modelError=Error.class)
+			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", onSucess=Erro.class)
 	public void sampleMethod(){
 		System.out.println("Hi ! I'm a sample method without arguments :D");
 	}
 	
 	@DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", 
 			description="Método de Exemplo (Com parametros)", 
-			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", modelError=Employee.class,modelSucess=Erro.class)
+			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", onSucess = Employee.class)
 	public void anotherSampleMethod(@DocParam(description="Nome do usuario",optional=false)String nome, 
 									@DocParam(description="Idade do usuario",optional=false)String idade, 
 									@DocParam(description="sexo do usuario",optional=false)String sexo, 

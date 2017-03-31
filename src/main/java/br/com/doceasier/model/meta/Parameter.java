@@ -1,4 +1,4 @@
-package br.com.doceasier.model;
+package br.com.doceasier.model.meta;
 
 import br.com.doceasier.model.annotations.DocParam;
 

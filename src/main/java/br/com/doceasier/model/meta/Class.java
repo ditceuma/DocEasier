@@ -1,8 +1,9 @@
-package br.com.doceasier.model;
+package br.com.doceasier.model.meta;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.doceasier.exception.DoceasierException;
 import br.com.doceasier.model.annotations.DocClass;
 
 @SuppressWarnings({"unused","rawtypes","unchecked"})
@@ -15,11 +16,11 @@ public class Class {
 	private List<Field> fields = new ArrayList<Field>();
 	private List<Method> methods = new ArrayList<Method>();
 	
-	public Class(java.lang.Class c) {
+	public Class(java.lang.Class c) throws DoceasierException {
 		getClassConfiguration(c);
 	}
 
-	private void getClassConfiguration(java.lang.Class c){
+	private void getClassConfiguration(java.lang.Class c) throws DoceasierException{
 		this.origin = c.getPackage().toString();
 		this.name = c.getSimpleName();
 		

@@ -1,4 +1,4 @@
-package br.com.doceasier.model;
+package br.com.doceasier.model.meta;
 
 import com.thoughtworks.paranamer.AnnotationParanamer;
 import com.thoughtworks.paranamer.BytecodeReadingParanamer;

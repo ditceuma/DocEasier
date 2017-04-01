@@ -6,15 +6,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import br.com.doceasier.enumerators.TypeRequest;
-import br.com.doceasier.model.appenders.Return;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @SuppressWarnings("rawtypes")
 public @interface DocMethod {
-	String description() default "Nenhuma descrição adicionada para este método :(";
+	String description() default "Nenhuma descriï¿½ï¿½o adicionada para este mï¿½todo :(";
 	String createdBy() default "Autor inexistente ! Por favor, verifique";
-	String date() default "Data de criação nÃoo configurada! Por favor, verifique";
+	String date() default "Data de criaï¿½ï¿½o nï¿½oo configurada! Por favor, verifique";
 	TypeRequest typeRequest() default TypeRequest.GET;
 	String url();
 	Class<?> onSucess();

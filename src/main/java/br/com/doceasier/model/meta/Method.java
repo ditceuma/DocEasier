@@ -4,8 +4,11 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.GsonBuilder;
+
 import br.com.doceasier.enumerators.TypeRequest;
 import br.com.doceasier.exception.DoceasierException;
+import br.com.doceasier.model.annotations.DocIgnore;
 import br.com.doceasier.model.annotations.DocMethod;
 
 @SuppressWarnings({ "unused", "rawtypes" })
@@ -19,12 +22,11 @@ public class Method {
 	private String author;
 	private String url;
 	private String modifier;
-	private java.lang.Object onSuccess;
+	private String onSuccess;
 	private List<br.com.doceasier.model.meta.Parameter> parameters = new ArrayList<br.com.doceasier.model.meta.Parameter>();
 
 	public Method(java.lang.reflect.Method method) throws DoceasierException {
-		getMethodConfiguration(method);
-
+			getMethodConfiguration(method);
 	}
 
 	/**
@@ -37,14 +39,14 @@ public class Method {
 	 * @see Class
 	 */
 	private void getMethodConfiguration(java.lang.reflect.Method method) throws DoceasierException {
+		DocMethod doc = method.getAnnotation(DocMethod.class);
 		try {
 			this.name = method.getName();
 			this.returnType = method.getReturnType().getCanonicalName();
 			this.modifier = Modifier.toString(method.getModifiers());
-			DocMethod doc = method.getAnnotation(DocMethod.class);
 
 			if (method.isAnnotationPresent(DocMethod.class)) {
-				this.onSuccess = doc.onSucess().newInstance();
+				this.onSuccess = this.serializeObject(doc.onSucess().newInstance());
 				this.description = doc.description();
 				this.author = doc.createdBy();
 				this.dateCreation = doc.date();
@@ -61,9 +63,15 @@ public class Method {
 				}
 			}
 		} catch (InstantiationException ex) {
-			throw new DoceasierException("Não encontramos um construtor nas classes que possa ser utilizado pelo DocEasier!");
+			throw new DoceasierException("NÃ£o encontramos um construtor na classe ["+doc.onSucess().getName()+"] que possa ser utilizado pelo DocEasier. Crie um construtor em branco !");
 		} catch( IllegalAccessException ex){
 			throw new DoceasierException("Oops ! Aconteceu algo errado :("+ex);
 		}
+	}
+	
+	private String serializeObject(Object o){
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.serializeNulls();
+		return gsonBuilder.create().toJson(o);
 	}
 }

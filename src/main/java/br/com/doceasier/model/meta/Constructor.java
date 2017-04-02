@@ -9,7 +9,7 @@ import br.com.doceasier.model.annotations.DocConstructor;
 public class Constructor {
 
 	private String description;
-	private List<br.com.doceasier.model.meta.Parameter> parameters = new ArrayList<br.com.doceasier.model.meta.Parameter>();
+	private final List<br.com.doceasier.model.meta.Parameter> parameters = new ArrayList<br.com.doceasier.model.meta.Parameter>();
 	
 
 	public Constructor(java.lang.reflect.Constructor c) {

@@ -5,11 +5,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.TYPE)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DocClass {
-	String description() default "Nenhuma descrição adicionada para esta classe :(";
-	String createdBy() default "";
-	String date() default "";
-	String url() default "";
+public @interface DocIgnore {
+
 }

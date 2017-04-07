@@ -19,7 +19,37 @@ Para sinalizar uma classe que irá ser enxergada pelo `DocEasier` você só prec
 	}
 ```
 
-### 3. Adicionando informações sobre o Projeto * <i style="color:red">Importante</i>
-1º Clone o repositório
-2º Construa o projeto através do maven com o comando: mvn eclipse:eclipse<br/>
-3º Importe em seu workspace e seja feliz :D
+### 3. Adicionando informações sobre o seu Projeto
+<i>Passo Essencial *</i>
+<ul>
+	<li>Escolha uma classe anotada com @EnableDocumentation</li>
+	<li>Anote-a com @Project para definir as informações sobre o seu <b>projeto</b></li>
+</ul>
+### TESTE
+```java
+	@EnableDocumentation
+	@Project
+	public class MyController{
+		//DO THINGS;
+	}
+```
+
+### 4. Anotações auxiliares para documentação
+#### 4.1 `EnableDocumentation`
+```java
+	@EnableDocumentation //Elege classes para serem documentadas
+```
+#### 4.2 `Project`
+```java
+	@Project //Anotação para definir informações do Projeto documentado. Possui 3 atributos:
+		 //1. name: Nome literal do Projeto *
+		 //2. description: Descrição bem sintética do seu projeto *
+		 //3. masterUrl: Contexto da sua aplicação, ex: /myContextPath *
+```
+#### 4.3 `DocClass`
+```java
+	@DocClass //Anotação para definir informações do Projeto documentado. Possui 3 atributos:
+		 //1. name: Nome literal do Projeto *
+		 //2. description: Descrição bem sintética do seu projeto *
+		 //3. masterUrl: Contexto da sua aplicação, ex: /myContextPath *
+```

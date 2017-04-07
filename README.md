@@ -18,6 +18,8 @@ Para sinalizar uma classe que irá ser enxergada pelo `DocEasier` você só prec
 		//DO THINGS;
 	}
 ```
+
+### 3. Adicionando informações sobre o Projeto * <i style="color:red">Importante</i>
 1º Clone o repositório
 2º Construa o projeto através do maven com o comando: mvn eclipse:eclipse<br/>
 3º Importe em seu workspace e seja feliz :D

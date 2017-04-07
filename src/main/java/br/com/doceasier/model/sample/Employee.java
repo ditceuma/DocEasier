@@ -10,11 +10,4 @@ public class Employee {
 	int idade;
 	
 	
-	@Override
-	public String toString() {
-		return "Employee [codigo=" + codigo + ", nome=" + nome + ", cpf=" + cpf
-				+ ", teste=" + teste + ", idade=" + idade + "]";
-	}
-	
-	
 }

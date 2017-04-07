@@ -1,5 +1,6 @@
 package br.com.doceasier.model.meta;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +70,26 @@ public class Method {
 		}
 	}
 	
-	private String serializeObject(Object o){
+	private String serializeObject(Object o) throws InstantiationException, IllegalAccessException{
+		
+		//TODO INICIALIZAR VARIÁVEIS DA FORMA NECESSÁRIA
+		for(Field f: o.getClass().getDeclaredFields()){
+			if(f.getType().newInstance() instanceof java.lang.String){
+				f.set(f.getType().newInstance(), " ");
+			}else if(f.getType().newInstance() instanceof java.lang.Integer || 
+					 f.getType().newInstance() instanceof java.lang.Double  ||
+					 f.getType().newInstance() instanceof java.lang.Long    ||
+					 f.getType().newInstance() instanceof java.lang.Float   ||
+					 f.getType().newInstance() instanceof java.lang.Byte    ||
+					 f.getType().newInstance() instanceof java.lang.Short   ||
+					 f.getType().newInstance() instanceof java.lang.Character){
+				f.set(f.getType(), 0);
+			}else{
+				
+			}
+			
+		}
+		
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.serializeNulls();
 		return gsonBuilder.create().toJson(o);

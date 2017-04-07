@@ -1,13 +1,6 @@
 package br.com.doceasier.app;
 
-import java.net.URISyntaxException;
-import java.util.Collections;
-import java.util.Set;
-
 import org.reflections.Reflections;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import br.com.doceasier.exception.DoceasierException;
 import br.com.doceasier.model.annotations.EnableDocumentation;
@@ -18,7 +11,7 @@ public abstract class DocEasier {
 	
 	public static Object generateDocs() throws DoceasierException {
 		Reflections reflections = new Reflections("");
-		if(reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class).size() > 1){
+		if(reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class).size() != 1){
 			throw new DoceasierException("Você só pode ter uma classe anotada com @Project");
 		}else if(reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class).size() == 1){
 			for(Class<?> c:reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class)){

@@ -53,7 +53,7 @@ public class MyController(){
 #### 4.3 `DocClass`
 Anotação para atribuir informaçoes sobre a classe anotada. <b>Escopo: Classe</b>
 ```java
-@DocClass(description="Descrição do meu controller...",createdBy="Marcus Cartágenes", date="24/03/2017",url="/myController)
+@DocClass(description="Descrição do meu controller...",createdBy="Marcus Cartágenes", date="24/03/2017",url="/myController")
 public class MyController(){
 	//1. description: Descrição sintétizada da classe
 	 //2. createdBy: Criador da classe

@@ -20,9 +20,9 @@ public class MyController{
 ```
 
 ### 3. Adicionando informações sobre o seu Projeto
-<i>Passo Essencial *</i>
-	1.Escolha uma classe anotada com @EnableDocumentation<br/>
-	2.Anote-a com @Project para definir as informações sobre o seu <b>projeto</b>
+<i>Passo Essencial *</i><br/>
+1.Escolha uma classe anotada com `@EnableDocumentation`<br/>
+2.Anote-a com `@Project` para definir as informações sobre o seu <b>projeto</b>
 ```java
 @EnableDocumentation
 @Project
@@ -107,3 +107,5 @@ public void myMethod(){
 }
 }
 ```
+### 4.7 `DocIgnore`
+Anotação para ignorar a documentação de um elemento específico, você só precisa anotá-lo com `@DocIgnore`;	

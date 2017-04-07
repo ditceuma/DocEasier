@@ -99,7 +99,7 @@ public class MyController
 
 @DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", description="Método de Exemplo (Com parametros)", 
 			   typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", onSucess = Employee.class)
-public void myMethod(
+public void myMethod(){
 	@DocParam(description="Descrição do primeiro parâmetro",optional=true)String nome String param1, 
 	@DocParam(description="Descrição do segundo parâmetro",optional=false)String nome Date param2){
 	//1. description: Descrição do parâmetro 

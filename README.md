@@ -25,7 +25,6 @@ Para sinalizar uma classe que irá ser enxergada pelo `DocEasier` você só prec
 	<li>Escolha uma classe anotada com @EnableDocumentation</li>
 	<li>Anote-a com @Project para definir as informações sobre o seu <b>projeto</b></li>
 </ul>
-### TESTE
 ```java
 	@EnableDocumentation
 	@Project
@@ -36,10 +35,12 @@ Para sinalizar uma classe que irá ser enxergada pelo `DocEasier` você só prec
 
 ### 4. Anotações auxiliares para documentação
 #### 4.1 `EnableDocumentation`
+Escopo: Classe
 ```java
 	@EnableDocumentation //Elege classes para serem documentadas
 ```
 #### 4.2 `Project`
+Escopo: Classe
 ```java
 	@Project //Anotação para definir informações do Projeto documentado. Possui 3 atributos:
 		 //1. name: Nome literal do Projeto *
@@ -47,8 +48,9 @@ Para sinalizar uma classe que irá ser enxergada pelo `DocEasier` você só prec
 		 //3. masterUrl: Contexto da sua aplicação, ex: /myContextPath *
 ```
 #### 4.3 `DocClass`
+Escopo: Classe
 ```java
-	@DocClass //Anotação para definir informações do Projeto documentado. Possui 3 atributos:
+	@DocClass //Anotação para atribuir informaçoes sobre a classe anotada. 
 		 //1. name: Nome literal do Projeto *
 		 //2. description: Descrição bem sintética do seu projeto *
 		 //3. masterUrl: Contexto da sua aplicação, ex: /myContextPath *

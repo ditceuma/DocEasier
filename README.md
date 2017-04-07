@@ -1,4 +1,4 @@
-# DocEasier - 0.0.1
+# ![DocEasier](http://i.imgur.com/p8xIzUJ.jpg)
 O DocEasier é uma API construida em java para auxiliar a documentação do seu WebProject. Siga os passos abaixo para utilizar.<br/>
 
 ### 1. Importe a dependência dentro do seu `pom.xml`

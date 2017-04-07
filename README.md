@@ -95,7 +95,7 @@ public void myMethod(){
 Anotação para classificar os parâmetros dos métodos anotados com `@DocMethod`. <b>Escopo: Parâmetro</b>
 ```java
 @EnableDocumentation
-public class MyController
+public class MyController{
 
 @DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", description="Método de Exemplo (Com parametros)", 
 			   typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", onSucess = Employee.class)

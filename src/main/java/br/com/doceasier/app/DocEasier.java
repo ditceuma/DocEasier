@@ -26,6 +26,11 @@ public abstract class DocEasier {
 		return null;
 	}
 	
+	public static void main(String[] args) throws DoceasierException {
+		Object o = generateDocs();
+		System.out.println(o);
+	}
+	
 	
 	
 }

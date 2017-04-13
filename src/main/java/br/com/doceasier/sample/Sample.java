@@ -18,7 +18,7 @@ public class Sample {
 	
 	@DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", 
 			description="Método de Exemplo (Sem parametros)", 
-			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", onSucess=Erro.class)
+			typeRequest=TypeRequest.GET,url="/myapp/sampleMethod", onSucess=Employee.class)
 	public void sampleMethod(){
 		System.out.println("Hi ! I'm a sample method without arguments :D");
 	}

@@ -11,7 +11,7 @@ public abstract class DocEasier {
 	
 	public static Object generateDocs() throws DoceasierException {
 		Reflections reflections = new Reflections("");
-		if(reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class).size() > 1){
+		if(reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class).size() != 1){
 			throw new DoceasierException("Você só pode ter uma classe anotada com @Project");
 		}else if(reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class).size() == 1){
 			for(Class<?> c:reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class)){
@@ -24,6 +24,11 @@ public abstract class DocEasier {
 			}
 		}
 		return null;
+	}
+	
+	public static void main(String[] args) throws DoceasierException {
+		Object o = generateDocs();
+		System.out.println(o);
 	}
 	
 	

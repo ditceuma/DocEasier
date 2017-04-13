@@ -1,5 +1,6 @@
 package br.com.doceasier.model.meta;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,9 +69,60 @@ public class Method {
 		}
 	}
 	
-	private String serializeObject(Object o){
+	private String serializeObject(Object o) throws InstantiationException, IllegalAccessException{
+		
+		for(Field f: o.getClass().getDeclaredFields()){
+			f.setAccessible(true);
+			existeSubTipo(f,o);
+		}
+	
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.serializeNulls();
 		return gsonBuilder.create().toJson(o);
+	}
+	
+	private void existeSubTipo(Field f, Object o) throws InstantiationException, IllegalAccessException{
+		if(f.getType().getName().equals("java.lang.Integer")){
+			f.set(o, Integer.valueOf(10));
+		}
+		else if(f.getType().getName().equals("java.lang.Double")){
+			f.set(o, 10D);
+		}
+		else if(f.getType().getName().equals("java.lang.Long")){
+			f.set(o, 10L);
+		}
+		else if(f.getType().getName().equals("java.lang.Float")){
+			f.set(o, 10F);
+		}
+		else if(f.getType().getName().equals("java.lang.Byte")){
+			f.set(o, 10);
+		}
+		else if(f.getType().getName().equals("java.lang.Short")){
+			f.set(o, 10);
+		}
+		else if(f.getType().getName().equals("java.lang.Character")){
+			f.set(o, 'C');
+		}
+		else if(f.getType().getName().equals("java.lang.String")){
+			f.set(o, "-");
+		}
+		else if(f.getType().getName().equals("java.lang.Boolean")){
+			f.set(o, false);
+		}else if(f.getType().isPrimitive()){
+			if(!f.getType().getName().equals("char")){
+				f.set(o, 10);
+			}else{
+				f.set(o, 'C');
+			}
+		}else{
+			f.set(o.getClass().newInstance(), f.getType().newInstance());
+			for(Field fieldAux: f.getType().getDeclaredFields()){
+				fieldAux.setAccessible(true);
+				existeSubTipo(fieldAux,f.getType().newInstance());
+			}
+		}
+		
+		System.out.println("Variável do tipo ["+f.getType()+"] encontrada !");
+		
 	}
 }

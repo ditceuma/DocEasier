@@ -1,13 +1,6 @@
 package br.com.doceasier.app;
 
-import java.net.URISyntaxException;
-import java.util.Collections;
-import java.util.Set;
-
 import org.reflections.Reflections;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import br.com.doceasier.exception.DoceasierException;
 import br.com.doceasier.model.annotations.EnableDocumentation;

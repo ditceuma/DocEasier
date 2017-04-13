@@ -9,7 +9,6 @@ import br.com.doceasier.enumerators.TypeRequest;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-@SuppressWarnings("rawtypes")
 public @interface DocMethod {
 	String description() default "Nenhuma descri��o adicionada para este m�todo :(";
 	String createdBy() default "Autor inexistente ! Por favor, verifique";

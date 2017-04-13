@@ -3,9 +3,8 @@ package br.com.doceasier.model.meta;
 import java.lang.reflect.Modifier;
 
 import br.com.doceasier.model.annotations.DocField;
-import br.com.doceasier.model.annotations.DocMethod;
-import br.com.doceasier.model.annotations.DocParam;
 
+@SuppressWarnings("unused")
 public class Field {
 
 	private String name;

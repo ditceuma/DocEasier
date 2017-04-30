@@ -4,13 +4,9 @@ import br.com.doceasier.enumerators.TypeRequest;
 import br.com.doceasier.model.annotations.DocClass;
 import br.com.doceasier.model.annotations.DocMethod;
 import br.com.doceasier.model.annotations.DocParam;
-import br.com.doceasier.model.annotations.EnableDocumentation;
-import br.com.doceasier.model.annotations.Project;
 import br.com.doceasier.model.sample.Employee;
-import br.com.doceasier.model.sample.Erro;
 
-@Project(description="teste", masterUrl="/etste", name="teste")
-@EnableDocumentation
+//@Project(description="teste", masterUrl="/etste", name="teste")
 @DocClass(	createdBy="Marcus Cartágenes", 
 			date="24/03/2017", 
 			description="Classe responsável pelo controle da Biblioteca Virtual")

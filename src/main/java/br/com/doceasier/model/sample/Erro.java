@@ -4,7 +4,6 @@ public class Erro {
 
 	private Integer codigo;
 	private String mensagem;
-	private ThirdySample ts;
 	
 	public Integer getCodigo() {
 		return codigo;

@@ -80,6 +80,86 @@ public class Method {
 		gsonBuilder.serializeNulls();
 		return gsonBuilder.create().toJson(o);
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getReturnType() {
+		return returnType;
+	}
+
+	public void setReturnType(String returnType) {
+		this.returnType = returnType;
+	}
+
+	public String getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(String dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+	public TypeRequest getTypesRequest() {
+		return typesRequest;
+	}
+
+	public void setTypesRequest(TypeRequest typesRequest) {
+		this.typesRequest = typesRequest;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getModifier() {
+		return modifier;
+	}
+
+	public void setModifier(String modifier) {
+		this.modifier = modifier;
+	}
+
+	public String getOnSuccess() {
+		return onSuccess;
+	}
+
+	public void setOnSuccess(String onSuccess) {
+		this.onSuccess = onSuccess;
+	}
+
+	public List<br.com.doceasier.model.meta.Parameter> getParameters() {
+		return parameters;
+	}
+
+	public void setParameters(List<br.com.doceasier.model.meta.Parameter> parameters) {
+		this.parameters = parameters;
+	}
 	
 	/*private void existeSubTipo(Field f, Object o) throws InstantiationException, IllegalAccessException{
 		if(f.getType().getName().equals("java.lang.Integer")){
@@ -125,4 +205,6 @@ public class Method {
 		System.out.println("Variável do tipo ["+f.getType()+"] encontrada !");
 		
 	}*/
+	
+	
 }

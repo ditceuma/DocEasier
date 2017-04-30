@@ -25,4 +25,21 @@ public class Constructor {
 			}
 		}
 	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public List<br.com.doceasier.model.meta.Parameter> getParameters() {
+		return parameters;
+	}
+	
+	
 }

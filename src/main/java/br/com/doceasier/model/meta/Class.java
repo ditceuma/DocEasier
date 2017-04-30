@@ -41,4 +41,42 @@ public class Class {
 			}
 		}
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getOrigin() {
+		return origin;
+	}
+
+	public List<Constructor> getConstructors() {
+		return constructors;
+	}
+
+	public List<Field> getFields() {
+		return fields;
+	}
+
+	public List<Method> getMethods() {
+		return methods;
+	}
+	
+	
 }

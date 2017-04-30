@@ -2,8 +2,6 @@ package br.com.doceasier.app;
 
 import org.reflections.Reflections;
 
-import com.google.gson.Gson;
-
 import br.com.doceasier.exception.DoceasierException;
 import br.com.doceasier.model.annotations.EnableDocumentation;
 import br.com.doceasier.model.meta.Project;

@@ -72,17 +72,17 @@ public class Method {
 	
 	private String serializeObject(Object o) throws InstantiationException, IllegalAccessException{
 		
-		for(Field f: o.getClass().getDeclaredFields()){
+		/*for(Field f: o.getClass().getDeclaredFields()){
 			f.setAccessible(true);
 			existeSubTipo(f,o);
-		}
+		}*/
 	
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.serializeNulls();
 		return gsonBuilder.create().toJson(o);
 	}
 	
-	private void existeSubTipo(Field f, Object o) throws InstantiationException, IllegalAccessException{
+	/*private void existeSubTipo(Field f, Object o) throws InstantiationException, IllegalAccessException{
 		if(f.getType().getName().equals("java.lang.Integer")){
 			f.set(o, Integer.valueOf(10));
 		}
@@ -125,5 +125,5 @@ public class Method {
 		
 		System.out.println("Variável do tipo ["+f.getType()+"] encontrada !");
 		
-	}
+	}*/
 }

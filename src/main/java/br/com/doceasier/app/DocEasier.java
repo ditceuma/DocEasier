@@ -2,13 +2,13 @@ package br.com.doceasier.app;
 
 import org.reflections.Reflections;
 
+import com.google.gson.Gson;
+
 import br.com.doceasier.exception.DoceasierException;
 import br.com.doceasier.model.annotations.EnableDocumentation;
 import br.com.doceasier.model.meta.Project;
 
 public abstract class DocEasier {
-	
-	
 	public static Object generateDocs() throws DoceasierException {
 		Reflections reflections = new Reflections("");
 		if(reflections.getTypesAnnotatedWith(br.com.doceasier.model.annotations.Project.class).size() != 1){
@@ -25,12 +25,4 @@ public abstract class DocEasier {
 		}
 		return null;
 	}
-	
-	public static void main(String[] args) throws DoceasierException {
-		Object o = generateDocs();
-		System.out.println(o);
-	}
-	
-	
-	
 }

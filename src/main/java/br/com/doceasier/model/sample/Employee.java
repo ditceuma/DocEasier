@@ -1,5 +1,6 @@
 package br.com.doceasier.model.sample;
 
+@SuppressWarnings("unused")
 public class Employee {
 	
 	private Integer codigo;

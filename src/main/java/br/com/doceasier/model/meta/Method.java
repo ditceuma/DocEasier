@@ -5,14 +5,13 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.GsonBuilder;
-
 import br.com.doceasier.enumerators.TypeRequest;
 import br.com.doceasier.exception.DoceasierException;
-import br.com.doceasier.model.annotations.DocIgnore;
 import br.com.doceasier.model.annotations.DocMethod;
 
-@SuppressWarnings({ "unused", "rawtypes" })
+import com.google.gson.GsonBuilder;
+
+@SuppressWarnings({ "unused" })
 public class Method {
 
 	private String name;

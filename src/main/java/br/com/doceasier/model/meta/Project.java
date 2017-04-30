@@ -14,6 +14,7 @@ public class Project {
 	private String url;
 	private List<Class> classes = new ArrayList<Class>();
 	
+	@SuppressWarnings("unchecked")
 	public Project(Set<java.lang.Class<?>> c) throws DoceasierException {
 		for (java.lang.Class clazz : c) {
 			if(clazz.isAnnotationPresent(br.com.doceasier.model.annotations.Project.class)){

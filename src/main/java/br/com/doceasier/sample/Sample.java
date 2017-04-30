@@ -2,8 +2,6 @@ package br.com.doceasier.sample;
 
 import br.com.doceasier.enumerators.TypeRequest;
 import br.com.doceasier.model.annotations.DocClass;
-import br.com.doceasier.model.annotations.DocConstructor;
-import br.com.doceasier.model.annotations.DocField;
 import br.com.doceasier.model.annotations.DocMethod;
 import br.com.doceasier.model.annotations.DocParam;
 import br.com.doceasier.model.annotations.EnableDocumentation;
@@ -17,22 +15,6 @@ import br.com.doceasier.model.sample.Erro;
 			date="24/03/2017", 
 			description="Classe responsável pelo controle da Biblioteca Virtual")
 public class Sample {
-	
-	@DocField(description="Proxy da rede")
-	private String proxy;
-	
-	@DocField(description="Senha do proxy")
-	private String senha;
-	
-	@DocConstructor(description="Construtor para uso de WebService")
-	public Sample(String nome) {
-		// TODO Auto-generated constructor stub
-	}
-	
-	@DocConstructor(description="Construtor para o Domínio da aplicação")
-	public Sample(String idade, String nome) {
-		// TODO Auto-generated constructor stub
-	}
 	
 	@DocMethod(createdBy="Marcus Cartágenes", date="24/03/2017", 
 			description="Método de Exemplo (Sem parametros)", 

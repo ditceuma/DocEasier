@@ -6,7 +6,7 @@ import java.util.Set;
 
 import br.com.doceasier.exception.DoceasierException;
 
-@SuppressWarnings({"unused","rawtypes"})
+@SuppressWarnings({"rawtypes"})
 public class Project {
 
 	private String name;

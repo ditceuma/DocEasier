@@ -4,7 +4,7 @@ import java.lang.reflect.Modifier;
 
 import br.com.doceasier.model.annotations.DocField;
 
-@SuppressWarnings("unused")
+
 public class Field {
 
 	private String name;

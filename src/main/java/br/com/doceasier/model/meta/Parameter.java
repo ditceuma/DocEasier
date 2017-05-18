@@ -3,7 +3,6 @@ package br.com.doceasier.model.meta;
 import br.com.doceasier.model.annotations.DocParam;
 
 
-@SuppressWarnings("unused")
 public class Parameter {
 	private String name;
 	private String description;

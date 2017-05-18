@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.com.doceasier.model.annotations.DocConstructor;
 
-@SuppressWarnings({"unchecked","unused","rawtypes"})
+@SuppressWarnings({"unchecked","rawtypes"})
 public class Constructor {
 
 	private String description;

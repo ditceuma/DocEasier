@@ -1,6 +1,5 @@
 package br.com.doceasier.model.meta;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +10,6 @@ import br.com.doceasier.model.annotations.DocMethod;
 
 import com.google.gson.GsonBuilder;
 
-@SuppressWarnings({ "unused" })
 public class Method {
 
 	private String name;

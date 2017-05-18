@@ -7,7 +7,7 @@ import br.com.doceasier.exception.DoceasierException;
 import br.com.doceasier.model.annotations.DocClass;
 import br.com.doceasier.model.annotations.DocIgnore;
 
-@SuppressWarnings({ "unused", "rawtypes", "unchecked" })
+@SuppressWarnings({"rawtypes", "unchecked" })
 public class Class {
 
 	private final String name;
